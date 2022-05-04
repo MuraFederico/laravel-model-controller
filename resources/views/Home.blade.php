@@ -10,20 +10,22 @@
 <body>
     <div class="container">
         @foreach ($movies as $movie)
-            <div class="card">
-                <h3>Tilte:</h3>
-                <p>{{ $movie->title }}</p>
-                @if ($movie->title !== $movie->original_title)
-                    <h3>Original Title:</h3>
-                    <p>{{ $movie->original_title }}</p>
-                @endif
-                <h3>Nationality:</h3>
-                <p>{{ $movie->nationality }}</p>
-                <h3>Year:</h3>
-                <p>{{ $year = DateTime::createFromFormat('Y-m-d', $movie->date)->format('Y') }}</p>
-                <h3>Vote:</h3>
-                <p>{{ $movie->vote }}</p>
-            </div>
+        <figure class="image-block">
+            <h1>{{ $movie->title }}</h1>
+            <img src="https://images.pexels.com/photos/1680140/pexels-photo-1680140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+            <figcaption>
+                <h3>
+                    More Info
+                </h3>
+                <p>Original Title: {{ $movie->original_title }}</p>
+                <p>Nationality: {{ $movie->nationality }}</p>
+                <p>Year: {{ $year = DateTime::createFromFormat('Y-m-d', $movie->date)->format('Y') }}</p>
+                <p>Vote: {{ $movie->vote }}</p>
+                <button>
+                    More Info
+                </button>
+            </figcaption>
+        </figure>
         @endforeach
     </div>
 </body>
