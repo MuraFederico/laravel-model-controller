@@ -9,7 +9,7 @@ class MoviesController extends Controller
 {
     public function index() {
         $movies = Movie::all();
-        dd($movies);
+
         $data = [
             'movies' => $movies,
         ];
